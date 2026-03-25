@@ -1,4 +1,4 @@
-# Modular Production Ready RAG System (Chroma + Redis + Local Models)
+# RAG MONSTER - (Modular Orchestrated Neural Semantic Text Embedding & Retrieval) is a Modular Production Ready RAG System (Chroma + Redis + Local Models)
 
 A highly modular Retrieval-Augmented Generation (RAG) system running locally, designed for maximum performance, multi-turn chat context, and accurate document retrieval.
 
