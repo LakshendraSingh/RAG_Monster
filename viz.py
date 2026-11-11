@@ -3,9 +3,11 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
 CHROMA_PATH = os.getenv("CHROMA_PATH", "./chroma_db")
 

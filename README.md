@@ -1,60 +1,96 @@
-# RAG MONSTER - (Modular Orchestrated Neural Semantic Text Embedding & Retrieval) is a Modular Production Ready RAG System (Chroma + Redis + Local Models)
+# RAG MONSTER - (Modular Orchestrated Neural Semantic Text Embedding & Retrieval)
 
-A highly modular Retrieval-Augmented Generation (RAG) system running locally, designed for maximum performance, multi-turn chat context, and accurate document retrieval.
-
-## Architecture Highlights
-
-- **Vector Database**: Chroma via `langchain-chroma` for efficient local vector storage.
-- **Caching & Chat History**: Redis for managing fast-access context windows per user session.
-- **Local Embeddings**: `nomic-embed-text` running natively in Ollama (high performance, free, 768-dim).
-- **Re-Ranking System**: `cross-encoder/ms-marco-MiniLM-L-6-v2` re-ranks retrieved dense chunks drastically improving retrieval utility.
-- **Generation LLM**: Integrated with local models running on Ollama (defaults to `llama3:latest`).
-- **Dual Interfaces**: Contains a robust FastAPI backend and a clean Typer-based CLI for testing and automation.
-
-## Features
-
-- **Smart Document Loaders**: Automatically handles PDF text parsing, generic `.txt`/`.md` reading, and Web crawling via `WebBaseLoader`.
-- **Advanced Text Chunking**: Supports both **Semantic Chunking** (meaning-based) and **Recursive Character Splitting** (token-based).
-- **Stateless & Stateful Retrieval**: Every chat is mapped to an isolated `session_id` using Redis backend.
+A modular, production-ready Retrieval-Augmented Generation (RAG) system with Chroma vector storage, Redis caching (with in-memory fallback), and a universal LLM engine supporting **cloud API-based LLMs** and **Hugging Face / GGUF downloaded weights** (inspired by the LucyCode multi-provider architecture).
 
 ---
 
-## Prerequisites
+## Architecture Highlights
 
-1. **Python 3.9+**
-2. **Chroma**: Used in-process with a local persistence directory (Default: `./chroma_db`).
-3. **Redis**: You need an active Redis cache instance port (Default: 6379).
-   - Redis via Docker:
-     ```bash
-     docker run -d -p 6379:6379 redis:latest
-     ```
-4. **Ollama**: An active LLM inference environment mapped locally.
-   - Pull LLM: `ollama pull llama3`
-   - Pull Embedding: `ollama pull nomic-embed-text`
+- **Universal Multi-Provider LLM Engine**: Seamlessly switch between cloud APIs (OpenAI, Anthropic, Gemini, Groq, DeepSeek, Mistral, OpenRouter, Together, Fireworks), direct Hugging Face downloaded weights (via `transformers` + `torch` with Apple Silicon MPS / CUDA), direct GGUF files (via `llama-cpp-python`), or local servers (Ollama, llama.cpp, vLLM).
+- **Flexible Embeddings**: Pluggable embedding models supporting Ollama (`nomic-embed-text`), HuggingFace / Sentence-Transformers (`sentence-transformers/all-MiniLM-L6-v2`), and OpenAI (`text-embedding-3-small`).
+- **Resilient Caching & Session History**: Redis backend for fast context window management, with automatic transparent **in-memory fallback** if Redis is not running.
+- **Vector Database**: Chroma via `langchain-chroma` for efficient local vector storage.
+- **Re-Ranking System**: `cross-encoder/ms-marco-MiniLM-L-6-v2` re-ranks retrieved dense chunks drastically improving retrieval utility.
+- **Dual Interfaces**: Robust FastAPI backend with Server-Sent Events (SSE) streaming and a rich Typer-based CLI for testing and automation.
+
+---
+
+## Supported LLM Providers & Models
+
+RAG_MONSTER detects the appropriate provider automatically using model prefixes or file paths:
+
+### 1. Cloud API Providers
+| Provider | Prefix / Example Model | Required Environment Variable |
+|---|---|---|
+| **OpenAI** | `openai:gpt-4o`, `gpt-4o-mini`, `o1`, `o3-mini` | `OPENAI_API_KEY` |
+| **Anthropic** | `anthropic:claude-3-5-sonnet-20241022`, `claude-3-5-haiku` | `ANTHROPIC_API_KEY` |
+| **Google Gemini** | `gemini:gemini-flash-latest`, `gemini-pro-latest` | `GEMINI_API_KEY` or `GOOGLE_API_KEY` |
+| **Groq Cloud** | `groq:llama-3.3-70b-versatile` | `GROQ_API_KEY` |
+| **DeepSeek** | `deepseek:deepseek-chat`, `deepseek:deepseek-reasoner` | `DEEPSEEK_API_KEY` |
+| **Mistral AI** | `mistral:mistral-large-latest`, `codestral-latest` | `MISTRAL_API_KEY` |
+| **OpenRouter** | `openrouter:anthropic/claude-3.5-sonnet` | `OPENROUTER_API_KEY` |
+| **Together AI** | `together:meta-llama/Llama-3.3-70B-Instruct-Turbo` | `TOGETHER_API_KEY` |
+| **Fireworks AI** | `fireworks:accounts/fireworks/models/llama-v3p3-70b-instruct` | `FIREWORKS_API_KEY` |
+
+### 2. Direct Hugging Face & Local Weights
+Load downloaded weights directly into memory without requiring an external server process:
+
+- **Hugging Face Model Directory**:
+  Point to any directory containing `config.json` and `.safetensors` (or download via `git lfs` / `huggingface-cli`):
+  ```bash
+  python cli.py query "Explain quantum computing" --model "/path/to/downloaded/Meta-Llama-3-8B-Instruct"
+  ```
+  *(Automatically detects Apple Silicon MPS, CUDA, or CPU fallback, and injects correct chat templates).*
+
+- **GGUF Weights Files**:
+  Point to any `.gguf` file:
+  ```bash
+  python cli.py query "Explain quantum computing" --model "weights:/path/to/model.gguf"
+  ```
+
+- **Global In-Memory Cache**: Weights are retained in memory across queries to avoid reloading latency.
+
+### 3. Local Inference Servers
+- **Ollama**: `ollama:llama3:latest` (or `llama3:latest`) via `OLLAMA_BASE_URL` (default `http://localhost:11434`).
+- **llama.cpp**: `llamacpp:local-model` via `LLAMACPP_HOST` (default `http://localhost:8080`).
+- **OpenAI-Compatible Servers** (vLLM, LMStudio, LocalAI): `openai_compat:my-model` with `OPENAI_BASE_URL`.
 
 ---
 
 ## Installation & Setup
 
-Set up an isolated python environment. Ensure dependencies are successfully fetched.
+1. **Clone repository and setup Python virtual environment**:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
 
-```bash
-# 1. Initialize environment
-python3 -m venv venv
-source venv/bin/activate
+2. *(Optional)* **Install dependencies for local weights execution**:
+   If you plan to run downloaded Hugging Face safetensors or GGUF weights locally:
+   ```bash
+   pip install torch transformers accelerate
+   # For GGUF support:
+   pip install llama-cpp-python
+   ```
 
-# 2. Fix MacOS python build configurations (if required)
-pip install -U pip setuptools wheel "cython<3" pyyaml==6.0.2
+3. **Configure environment**:
+   ```bash
+   cp .env.example .env
+   ```
+   Add any API keys (`OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, etc.) or configure `LLM_MODEL`.
+   > **Note**: Your `.env` file is excluded from Git tracking via `.gitignore` to protect your credentials.
 
-# 3. Feed the general dependencies
-pip install -r requirements.txt
-```
-
-Verify the `.env` configuration file exists and correctly maps the DB instances:
-
-```bash
-cp .env.example .env
-```
+4. **Background services (Optional)**:
+   - Redis: Optional (the system automatically falls back to an in-memory cache if Redis is not running).
+     ```bash
+     docker run -d -p 6379:6379 redis:latest
+     ```
+   - Ollama (if using local embeddings or local models):
+     ```bash
+     ollama pull nomic-embed-text
+     ollama pull llama3
+     ```
 
 ---
 
@@ -62,83 +98,92 @@ cp .env.example .env
 
 ### Mode 1: Command Line Interface (CLI)
 
-You can directly index text assets and prompt the RAG models through the terminal:
+**1. Inspect Providers and Active Environment**:
+```bash
+# List all supported providers and their configuration status
+python cli.py providers
 
-**1. Index a local file or URL**
+# Show active providers detected from environment API keys
+python cli.py detect-env
+```
 
+**2. Index Documents**:
 ```bash
 python cli.py index "path/to/my_report.pdf"
 ```
 
-**2. Query the Knowledge Base**
-
+**3. Query using default model**:
 ```bash
-python cli.py query "Summarize the findings in the report?" --session-id "user1_session" --show-context
+python cli.py query "Summarize the report" --show-context
 ```
 
-**3. Clear Session History**
-
+**4. Query with specific API model on-the-fly**:
 ```bash
-python cli.py clear-history "user1_session"
+# Google Gemini Flash
+python cli.py query "Summarize key findings" --model "gemini:gemini-flash-latest"
+
+# OpenAI GPT-4o
+python cli.py query "Summarize key findings" --model "openai:gpt-4o"
+
+# Anthropic Claude 3.5 Sonnet
+python cli.py query "Summarize key findings" --model "anthropic:claude-3-5-sonnet-20241022"
+
+# Groq LPU
+python cli.py query "Summarize key findings" --model "groq:llama-3.3-70b-versatile"
 ```
 
-**4. Deep Reset (Fix Sync Issues)**
-If you encounter "Nothing found on disk" errors, use this to purge the storage and start fresh:
-
+**5. Query with downloaded Hugging Face weights or GGUF**:
 ```bash
+# Hugging Face directory
+python cli.py query "Explain section 2" --model "./models/Llama-3-8B-Instruct"
+
+# GGUF file
+python cli.py query "Explain section 2" --model "weights:./models/mistral-7b.gguf"
+```
+
+**6. Stream tokens in real time**:
+```bash
+python cli.py query "Draft an executive summary" --model "gemini:gemini-flash-latest" --stream
+```
+
+**7. Database and Session Management**:
+```bash
+# Clear chat history for session
+python cli.py clear-history "default_session"
+
+# Clear vector database
+python cli.py clear-db
+
+# Deep reset (physically purges and re-initializes Chroma directory)
 python cli.py deep-reset
 ```
 
-**5. Clear Default Collection Data**
-
-```bash
-python cli.py clear-db
-```
-
-**6. Delete a Specific Collection**
-
-```bash
-python cli.py delete-collection "collection_name"
-```
-
-**7. Visualize Vector Database (Local Host)**
-
-Explore your embeddings in a web-based **2D/3D semantic dashboard**:
-
-```bash
-streamlit run viz.py
-```
-
-- **2D/3D Mapping**: Toggle between fast 2D and immersive 3D scatter plots.
-- **Vector Inspection**: View raw embedding previews (first 5 dimensions) for every chunk.
-- **Collection Switching**: Use the sidebar to explore multiple collections.
-
-### Configuration (`.env`)
-
-You can customize the RAG pipeline behavior via the `.env` file:
-
-- `EMBEDDING_MODEL_NAME`: Default `nomic-embed-text` (Ollama).
-- `CHUNKING_STRATEGY`: 
-    - `recursive`: Standard recursive character splitting (Default).
-    - `semantic`: Smart splitting based on embedding meaning (Requires `langchain-experimental`).
-- `LLM_MODEL`: The generation model in Ollama (e.g., `llama3`).
+---
 
 ### Mode 2: FastAPI Server
 
-Spin up the standard REST implementation backed by Uvicorn. This is useful if you are attaching Web frontends or external API services.
-
+Start the REST API server:
 ```bash
 python app.py
 ```
+Interactive Swagger API docs are available at **`http://localhost:8000/docs`**.
 
-The application mounts a Swagger testing environment containing Schema payloads at:  
-**`http://localhost:8000/docs`**
+#### API Endpoints
 
-#### Standard Endpoints
+| Method | Endpoint | Description | Payload Body Example |
+|---|---|---|---|
+| `POST` | `/index` | Add text vectors to Chroma DB | `{"source": "data/sales.pdf"}` |
+| `POST` | `/query` | Query RAG with session memory | `{"session_id": "user1", "question": "...", "model": "gemini:gemini-flash-latest"}` |
+| `POST` | `/query/stream` | Stream tokens using Server-Sent Events | `{"session_id": "user1", "question": "...", "model": "gemini:gemini-flash-latest"}` |
+| `GET` | `/providers` | List all supported providers & status | N/A |
+| `DELETE` | `/history/{session_id}` | Flush chat history for session | N/A |
+| `DELETE` | `/db` | Clear vector database | N/A |
 
-| Verb     | Endpoint        | Description                        | Payload Body Example                           |
-| -------- | --------------- | ---------------------------------- | ---------------------------------------------- |
-| `POST`   | `/index`        | Add text vectors to DB             | `{"source": "data/sales.pdf"}`                 |
-| `POST`   | `/query`        | Synthesize completion from context | `{"session_id": "test_id", "question": "..."}` |
-| `DELETE` | `/history/{id}` | Flush memory context matching ID   | N/A                                            |
-| `DELETE` | `/db`           | Wipe the vector database           | N/A                                            |
+---
+
+### Mode 3: Semantic Visualizer
+
+Explore stored embeddings in an interactive 2D/3D semantic map:
+```bash
+streamlit run viz.py
+```

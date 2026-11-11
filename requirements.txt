@@ -3,6 +3,7 @@ uvicorn
 typer
 pydantic
 python-dotenv
+aiohttp
 langchain
 langchain-community
 langchain-core
@@ -15,5 +16,10 @@ pypdf
 beautifulsoup4
 lxml
 unstructured
-
 langchain-experimental
+
+# Optional: Direct local weights execution (Hugging Face safetensors & GGUF)
+# torch
+# transformers
+# accelerate
+# llama-cpp-python

@@ -8,18 +8,19 @@ from core.chunker import DocumentChunker
 from core.vdb import VectorDB
 from core.retriever import RAGRetriever
 from core.cache import CacheManager
-from config import OLLAMA_BASE_URL, LLM_MODEL
-from langchain_community.llms import Ollama
+from config import LLM_MODEL
+from core.llm import get_llm
 from langchain_core.prompts import PromptTemplate
 
 class RAGPipeline:
     """Orchestrates the components to form the full RAG system."""
     
-    def __init__(self, use_reranker: bool = True):
+    def __init__(self, use_reranker: bool = True, model: str | None = None):
+        self.model = model or LLM_MODEL
         self.vdb = VectorDB()
         self.retriever = RAGRetriever(use_reranker=use_reranker)
         self.cache = CacheManager()
-        self.llm = Ollama(base_url=OLLAMA_BASE_URL, model=LLM_MODEL)
+        self.llm = get_llm(model=self.model)
         
         self.prompt_template = PromptTemplate(
             input_variables=["context", "question", "chat_history"],
@@ -60,7 +61,7 @@ Answer:"""
         
         return {"status": "success", "chunks_indexed": len(chunked_docs), "source": file_path_or_url}
 
-    def query(self, session_id: str, question: str):
+    def query(self, session_id: str, question: str, model: str | None = None):
         """Retrieves context, formats prompt, and generates answer incorporating history."""
         # 1. Get Chat History
         history = self.cache.get_chat_history(session_id)
@@ -77,13 +78,40 @@ Answer:"""
             question=question,
             chat_history=history_str
         )
-        answer = self.llm.invoke(prompt)
+        active_model = model or self.model
+        llm = get_llm(model=active_model) if model and model != self.model else self.llm
+        answer = llm.invoke(prompt)
         
         # 4. Update Cache
         self.cache.add_chat_message(session_id, "user", question)
         self.cache.add_chat_message(session_id, "assistant", answer)
         
-        return {"answer": answer, "context_used": context}
+        return {"answer": answer, "context_used": context, "model_used": active_model}
+
+    def query_stream(self, session_id: str, question: str, model: str | None = None):
+        """Retrieves context, formats prompt, and yields streaming answer chunks."""
+        history = self.cache.get_chat_history(session_id)
+        history_str = "\n".join([f"{msg['role']}: {msg['content']}" for msg in history[-5:]])
+        
+        print("Retrieving context for stream...")
+        context = self.retriever.retrieve_and_format(question)
+        
+        prompt = self.prompt_template.format(
+            context=context,
+            question=question,
+            chat_history=history_str
+        )
+        active_model = model or self.model
+        llm = get_llm(model=active_model) if model and model != self.model else self.llm
+        
+        full_answer = ""
+        for chunk in llm.stream(prompt):
+            chunk_str = str(chunk)
+            full_answer += chunk_str
+            yield chunk_str
+            
+        self.cache.add_chat_message(session_id, "user", question)
+        self.cache.add_chat_message(session_id, "assistant", full_answer)
 
     def clear_db(self):
         """Clear the vector database."""
