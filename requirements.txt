@@ -1,0 +1,25 @@
+fastapi
+uvicorn
+typer
+pydantic
+python-dotenv
+aiohttp
+langchain
+langchain-community
+langchain-core
+langchain-chroma
+langchain-redis
+redis
+sentence-transformers
+rank_bm25
+pypdf
+beautifulsoup4
+lxml
+unstructured
+langchain-experimental
+
+# Optional: Direct local weights execution (Hugging Face safetensors & GGUF)
+# torch
+# transformers
+# accelerate
+# llama-cpp-python

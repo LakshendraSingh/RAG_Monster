@@ -1,0 +1,778 @@
+{
+  "total_queries": 40,
+  "answerable_queries": 31,
+  "unanswerable_queries": 9,
+  "llm_calls_attempted": 40,
+  "llm_errors": 0,
+  "metrics": {
+    "recall_at_5": 1.0,
+    "mrr": 0.9409,
+    "answer_correctness": 0.7366,
+    "citation_accuracy": 0.9355,
+    "abstention_rate": 0.3333,
+    "latency_avg_s": 0.069,
+    "latency_p95_s": 0.115
+  },
+  "items": [
+    {
+      "id": "q01",
+      "answerable": true,
+      "expected_source": "aurora_handbook.md",
+      "retrieved_sources": [
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "q3_financials.txt",
+        "helix_api.md",
+        "q3_financials.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 1.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.084,
+      "answer_preview": "Paid Time Off (PTO) and Leave\nFull-time employees at Aurora Systems receive 22 days of Paid Time Off (PTO) per calendar year, accrued monthly at 1.83 days per month. Unused PTO up to a maximum of 5 da"
+    },
+    {
+      "id": "q02",
+      "answerable": true,
+      "expected_source": "aurora_handbook.md",
+      "retrieved_sources": [
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "compliance_policy.txt",
+        "aurora_handbook.md",
+        "q3_financials.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 1.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.078,
+      "answer_preview": "Engineering and Product teams are expected to be in-office on Tuesdays and Thursdays, while Mondays, Wednesdays, and Fridays are remote-flexible. Paid Time Off (PTO) and Leave\nFull-time employees at A"
+    },
+    {
+      "id": "q03",
+      "answerable": true,
+      "expected_source": "aurora_handbook.md",
+      "retrieved_sources": [
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md",
+        "nebula_architecture.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 1.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.06,
+      "answer_preview": "Equipment and Expense Policy\nEvery new hire receives a one-time home office stipend of $1,200 USD during their first 30 days. Monthly internet and co-working reimbursement is capped at $150 USD per mo"
+    },
+    {
+      "id": "q04",
+      "answerable": true,
+      "expected_source": "aurora_handbook.md",
+      "retrieved_sources": [
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "nebula_architecture.txt",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.5,
+      "answer_correctness": 1.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.082,
+      "answer_preview": "Critical (SEV-1) security incidents must be acknowledged by the on-call Security Engineer within 15 minutes and escalated to the CISO within 1 hour. Security Incident Response\nIf an employee suspects "
+    },
+    {
+      "id": "q05",
+      "answerable": true,
+      "expected_source": "aurora_handbook.md",
+      "retrieved_sources": [
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "q3_financials.txt",
+        "aurora_handbook.md",
+        "compliance_policy.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 0.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.083,
+      "answer_preview": "Paid Time Off (PTO) and Leave\nFull-time employees at Aurora Systems receive 22 days of Paid Time Off (PTO) per calendar year, accrued monthly at 1.83 days per month. Unused PTO up to a maximum of 5 da"
+    },
+    {
+      "id": "q06",
+      "answerable": true,
+      "expected_source": "nebula_architecture.txt",
+      "retrieved_sources": [
+        "nebula_architecture.txt",
+        "helix_api.md",
+        "aurora_handbook.md",
+        "q3_financials.txt",
+        "infra_runbook.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 1.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.063,
+      "answer_preview": "Partitioning and Ordering\nAll incoming telemetry events are partitioned by `tenant_id` using MurmurHash3 into 64 Kafka partitions per topic. Consumer groups use cooperative sticky rebalancing with a `"
+    },
+    {
+      "id": "q07",
+      "answerable": true,
+      "expected_source": "nebula_architecture.txt",
+      "retrieved_sources": [
+        "nebula_architecture.txt",
+        "infra_runbook.txt",
+        "infra_runbook.txt",
+        "nebula_architecture.txt",
+        "infra_runbook.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 1.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.055,
+      "answer_preview": "Caching and Deduplication\nNebula uses a Redis Cluster for idempotency deduplication. Every event carries a UUIDv7 `event_id` stored in Redis with a Time-To-Live (TTL) of 3600 seconds (1 hour). [1]"
+    },
+    {
+      "id": "q08",
+      "answerable": true,
+      "expected_source": "nebula_architecture.txt",
+      "retrieved_sources": [
+        "nebula_architecture.txt",
+        "nebula_architecture.txt",
+        "infra_runbook.txt",
+        "infra_runbook.txt",
+        "helix_api.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 0.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.038,
+      "answer_preview": "Error Codes and Circuit Breaking\n- ERR- NEBULA STREAMING ENGINE \u2014 ARCHITECTURE SPECIFICATION v3.4\n\n1. [1]"
+    },
+    {
+      "id": "q09",
+      "answerable": true,
+      "expected_source": "nebula_architecture.txt",
+      "retrieved_sources": [
+        "nebula_architecture.txt",
+        "nebula_architecture.txt",
+        "infra_runbook.txt",
+        "infra_runbook.txt",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 1.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.078,
+      "answer_preview": "The egress circuit breaker trips open when the downstream error rate exceeds 5% over a rolling 60-second window (minimum 100 requests) and stays open for 30 seconds before entering half-open state. If"
+    },
+    {
+      "id": "q10",
+      "answerable": true,
+      "expected_source": "nebula_architecture.txt",
+      "retrieved_sources": [
+        "nebula_architecture.txt",
+        "nebula_architecture.txt",
+        "infra_runbook.txt",
+        "infra_runbook.txt",
+        "q3_financials.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 1.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.05,
+      "answer_preview": "- ERR-5018: Downstream sink backpressure timeout exceeded (default 2500 ms). Error Codes and Circuit Breaking\n- ERR-4092: Schema registry mismatch (client payload failed Avro validation). [1]"
+    },
+    {
+      "id": "q11",
+      "answerable": true,
+      "expected_source": "q3_financials.txt",
+      "retrieved_sources": [
+        "q3_financials.txt",
+        "q3_financials.txt",
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md",
+        "compliance_policy.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 0.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.104,
+      "answer_preview": "Segment Breakdown:\n- North America: $31.1 million (64% of total revenue)\n- EMEA: $12.6 million (26% of total revenue)\n- APAC: $4.9 million (10% of total revenue)\n\nOperating Expenses and Margins:\nGross"
+    },
+    {
+      "id": "q12",
+      "answerable": true,
+      "expected_source": "q3_financials.txt",
+      "retrieved_sources": [
+        "q3_financials.txt",
+        "q3_financials.txt",
+        "legacy_handbook_2021.md",
+        "infra_runbook.txt",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 1.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.115,
+      "answer_preview": "Segment Breakdown:\n- North America: $31.1 million (64% of total revenue)\n- EMEA: $12.6 million (26% of total revenue)\n- APAC: $4.9 million (10% of total revenue)\n\nOperating Expenses and Margins:\nGross"
+    },
+    {
+      "id": "q13",
+      "answerable": true,
+      "expected_source": "q3_financials.txt",
+      "retrieved_sources": [
+        "q3_financials.txt",
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md",
+        "infra_runbook.txt",
+        "q3_financials.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 1.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.115,
+      "answer_preview": "Segment Breakdown:\n- North America: $31.1 million (64% of total revenue)\n- EMEA: $12.6 million (26% of total revenue)\n- APAC: $4.9 million (10% of total revenue)\n\nOperating Expenses and Margins:\nGross"
+    },
+    {
+      "id": "q14",
+      "answerable": true,
+      "expected_source": "q3_financials.txt",
+      "retrieved_sources": [
+        "q3_financials.txt",
+        "q3_financials.txt",
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "nebula_architecture.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 1.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.075,
+      "answer_preview": "Headcount and Guidance:\nTotal full-time headcount at quarter-end was 412 employees, with 185 in Engineering, 110 i AURORA SYSTEMS \u2014 Q3 2025 QUARTERLY FINANCIAL SUMMARY\n\nExecutive Highlights:\nTotal rev"
+    },
+    {
+      "id": "q15",
+      "answerable": true,
+      "expected_source": "q3_financials.txt",
+      "retrieved_sources": [
+        "q3_financials.txt",
+        "q3_financials.txt",
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 1.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.066,
+      "answer_preview": "Management projects Q4 2025 revenue to be between $51.0 million and $52.5 million. Headcount and Guidance:\nTotal full-time headcount at quarter-end was 412 employees, with 185 in Engineering, 110 in G"
+    },
+    {
+      "id": "q16",
+      "answerable": true,
+      "expected_source": "helix_api.md",
+      "retrieved_sources": [
+        "helix_api.md",
+        "aurora_handbook.md",
+        "helix_api.md",
+        "legacy_handbook_2021.md",
+        "legacy_handbook_2021.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 1.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.068,
+      "answer_preview": "# Helix REST API Reference (v2)\n\n## Authentication\nAll requests to the Helix API (`https://api.helix.dev/v2`) must include an `Authorization: Bearer <token>` header and an `X-Helix-Tenant` header spec"
+    },
+    {
+      "id": "q17",
+      "answerable": true,
+      "expected_source": "helix_api.md",
+      "retrieved_sources": [
+        "helix_api.md",
+        "aurora_handbook.md",
+        "helix_api.md",
+        "nebula_architecture.txt",
+        "nebula_architecture.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 0.5,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.068,
+      "answer_preview": "# Helix REST API Reference (v2)\n\n## Authentication\nAll requests to the Helix API (`https://api.helix.dev/v2`) must include an `Authorization: Bearer <token>` header and an `X-Helix-Tenant` header spec"
+    },
+    {
+      "id": "q18",
+      "answerable": true,
+      "expected_source": "helix_api.md",
+      "retrieved_sources": [
+        "helix_api.md",
+        "helix_api.md",
+        "nebula_architecture.txt",
+        "aurora_handbook.md",
+        "compliance_policy.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 1.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.065,
+      "answer_preview": "Pass `?limit=50` (default 25, maximum 100) and `?cursor=<opaque_token>`. # Helix REST API Reference (v2)\n\n## Authentication\nAll requests to the Helix API (`https://api.helix.dev/v2`) must include an `"
+    },
+    {
+      "id": "q19",
+      "answerable": true,
+      "expected_source": "helix_api.md",
+      "retrieved_sources": [
+        "helix_api.md",
+        "helix_api.md",
+        "aurora_handbook.md",
+        "nebula_architecture.txt",
+        "nebula_architecture.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 1.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.071,
+      "answer_preview": "# Helix REST API Reference (v2)\n\n## Authentication\nAll requests to the Helix API (`https://api.helix.dev/v2`) must include an `Authorization: Bearer <token>` header and an `X-Helix-Tenant` header spec"
+    },
+    {
+      "id": "q20",
+      "answerable": true,
+      "expected_source": "compliance_policy.txt",
+      "retrieved_sources": [
+        "compliance_policy.txt",
+        "infra_runbook.txt",
+        "legacy_handbook_2021.md",
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 0.6666666666666666,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.062,
+      "answer_preview": "Encryption Standards\nAll customer data at rest in S3 buckets and RDS databases must be encrypted using AES-256-GCM with customer-managed KMS keys rotated every 365 days. AURORA SYSTEMS \u2014 DATA GOVERNAN"
+    },
+    {
+      "id": "q21",
+      "answerable": true,
+      "expected_source": "compliance_policy.txt",
+      "retrieved_sources": [
+        "compliance_policy.txt",
+        "infra_runbook.txt",
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "compliance_policy.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 1.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.063,
+      "answer_preview": "Data Retention and Deletion\n- Application logs: retained for 90 days in hot storage, then purged automatically. - Audit and access logs: retained for 7 years in immutable WORM storage for SOC 2 Type I"
+    },
+    {
+      "id": "q22",
+      "answerable": true,
+      "expected_source": "compliance_policy.txt",
+      "retrieved_sources": [
+        "compliance_policy.txt",
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "infra_runbook.txt",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 1.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.082,
+      "answer_preview": "- Customer PII deletion (GDPR / CCPA \"Right to be Forgotten\"): upon verified request, all PII must be hard-deleted from primary databases within 14 business days and purged from encrypted backups with"
+    },
+    {
+      "id": "q23",
+      "answerable": true,
+      "expected_source": "compliance_policy.txt",
+      "retrieved_sources": [
+        "compliance_policy.txt",
+        "compliance_policy.txt",
+        "infra_runbook.txt",
+        "helix_api.md",
+        "nebula_architecture.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 0.5,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.071,
+      "answer_preview": "Compliance Audits\nAurora Systems undergoes an external SOC 2 Type II audit annually in October and an ISO 27001 surveillance audit every 12 months. - Audit and access logs: retained for 7 years in imm"
+    },
+    {
+      "id": "q24",
+      "answerable": true,
+      "expected_source": "nebula_architecture.txt",
+      "retrieved_sources": [
+        "nebula_architecture.txt",
+        "nebula_architecture.txt",
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "helix_api.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 1.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.06,
+      "answer_preview": "Consumer groups use cooperative sticky rebalancing with a `session.timeout.ms` of 45000 ms and `heartbeat.interval.ms` of 3000 ms. Overview\nNebula is a low-latency event streaming platform built on Ap"
+    },
+    {
+      "id": "q25",
+      "answerable": false,
+      "expected_source": "",
+      "retrieved_sources": [
+        "aurora_handbook.md",
+        "infra_runbook.txt",
+        "compliance_policy.txt",
+        "legacy_handbook_2021.md",
+        "compliance_policy.txt"
+      ],
+      "recall_at_5": null,
+      "reciprocal_rank": null,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": false,
+      "latency_s": 0.084,
+      "answer_preview": "Unused PTO up to a maximum of 5 days may be carried over into the first quarter (until March 31) of the following year. Employees working remotely for more than 14 consecutive days from outside their "
+    },
+    {
+      "id": "q26",
+      "answerable": false,
+      "expected_source": "",
+      "retrieved_sources": [
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "infra_runbook.txt",
+        "compliance_policy.txt",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": null,
+      "reciprocal_rank": null,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": false,
+      "latency_s": 0.074,
+      "answer_preview": "Unused PTO up to a maximum of 5 days may be carried over into the first quarter (until March 31) of the following year. Engineering and Product teams are expected to be in-office on Tuesdays and Thurs"
+    },
+    {
+      "id": "q27",
+      "answerable": false,
+      "expected_source": "",
+      "retrieved_sources": [
+        "infra_runbook.txt",
+        "nebula_architecture.txt",
+        "infra_runbook.txt",
+        "infra_runbook.txt",
+        "legacy_handbook_2021.md"
+      ],
+      "recall_at_5": null,
+      "reciprocal_rank": null,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": false,
+      "latency_s": 0.048,
+      "answer_preview": "NEBULA STREAMING ENGINE \u2014 ARCHITECTURE SPECIFICATION v3.4\n\n1. Overview\nNebula is a low-latency event streaming platform built on Apache Kafka and Rust worker nodes. [2]"
+    },
+    {
+      "id": "q28",
+      "answerable": false,
+      "expected_source": "",
+      "retrieved_sources": [
+        "aurora_handbook.md",
+        "infra_runbook.txt",
+        "compliance_policy.txt",
+        "legacy_handbook_2021.md",
+        "compliance_policy.txt"
+      ],
+      "recall_at_5": null,
+      "reciprocal_rank": null,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": true,
+      "latency_s": 0.038,
+      "answer_preview": "I do not have enough information in the provided context to answer this question."
+    },
+    {
+      "id": "q29",
+      "answerable": false,
+      "expected_source": "",
+      "retrieved_sources": [
+        "q3_financials.txt",
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md",
+        "compliance_policy.txt",
+        "q3_financials.txt"
+      ],
+      "recall_at_5": null,
+      "reciprocal_rank": null,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": false,
+      "latency_s": 0.071,
+      "answer_preview": "Net Dollar Retention (NDR) for enterprise customers (spending >$100k ARR) stood at 118%. AURORA SYSTEMS \u2014 Q3 2025 QUARTERLY FINANCIAL SUMMARY\n\nExecutive Highlights:\nTotal revenue for Q3 2025 reached $"
+    },
+    {
+      "id": "q30",
+      "answerable": false,
+      "expected_source": "",
+      "retrieved_sources": [
+        "helix_api.md",
+        "helix_api.md",
+        "legacy_handbook_2021.md",
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": null,
+      "reciprocal_rank": null,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": true,
+      "latency_s": 0.038,
+      "answer_preview": "I do not have enough information in the provided context to answer this question."
+    },
+    {
+      "id": "q31",
+      "answerable": true,
+      "expected_source": "infra_runbook.txt",
+      "retrieved_sources": [
+        "infra_runbook.txt",
+        "infra_runbook.txt",
+        "nebula_architecture.txt",
+        "helix_api.md",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 0.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.051,
+      "answer_preview": "# Aurora Systems Production Infrastructure Runbook (RUN-OPS-44)\n\n## Section 1: SEV-1 Database Primary Failover Procedure\n1. Verify replica lag: Run `pg_stat_replication` on read-replica nodes (`db-rep"
+    },
+    {
+      "id": "q32",
+      "answerable": true,
+      "expected_source": "infra_runbook.txt",
+      "retrieved_sources": [
+        "infra_runbook.txt",
+        "aurora_handbook.md",
+        "nebula_architecture.txt",
+        "aurora_handbook.md",
+        "compliance_policy.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 1.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.057,
+      "answer_preview": "DNS switch: Route53 internal record `db.internal.aurora.io` TTL is set to 10 seconds. Demote primary node: Execute `patronictl -c /etc/patroni/db.yml pause` followed by graceful shutdown of the primar"
+    },
+    {
+      "id": "q33",
+      "answerable": true,
+      "expected_source": "infra_runbook.txt",
+      "retrieved_sources": [
+        "infra_runbook.txt",
+        "infra_runbook.txt",
+        "nebula_architecture.txt",
+        "aurora_handbook.md",
+        "nebula_architecture.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 0.6666666666666666,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.068,
+      "answer_preview": "## Section 2: Redis Cluster Split-Brain Remediation\nWhen sentinel logs report `ODOWN` (objective down) on multiple Redis masters:\n- Force isolate partition node using iptables drop rule # Aurora Syste"
+    },
+    {
+      "id": "q34",
+      "answerable": true,
+      "expected_source": "infra_runbook.txt",
+      "retrieved_sources": [
+        "infra_runbook.txt",
+        "aurora_handbook.md",
+        "nebula_architecture.txt",
+        "aurora_handbook.md",
+        "helix_api.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 1.0,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.072,
+      "answer_preview": "## Section 3: Emergency Secret & KMS Key Rotation\nIn the event of suspected key compromise:\n- Revoke compromised AWS KMS key alias `alias/aurora-prod-vault-2025` with immediate disable: `aws kms disab"
+    },
+    {
+      "id": "q35",
+      "answerable": true,
+      "expected_source": "legacy_handbook_2021.md",
+      "retrieved_sources": [
+        "legacy_handbook_2021.md",
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md",
+        "compliance_policy.txt",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": 0.5,
+      "citation_accuracy": 1.0,
+      "abstained": null,
+      "latency_s": 0.072,
+      "answer_preview": "Paid Time Off (PTO) and Historical Leave\nUnder the 2021 policy, full-time employees were entitled to 15 days of PTO per calendar year, accrued at 1.25 days per month. In-Office Attendance\nThe 2021 pol"
+    },
+    {
+      "id": "q36",
+      "answerable": true,
+      "expected_source": "aurora_handbook.md",
+      "retrieved_sources": [
+        "legacy_handbook_2021.md",
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md",
+        "infra_runbook.txt",
+        "q3_financials.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "answer_correctness": 0.0,
+      "citation_accuracy": 0.0,
+      "abstained": null,
+      "latency_s": 0.064,
+      "answer_preview": "Legacy Security Incident SLA\nIn 2021, SEV-1 security incidents were required to be acknowledged within 45 minutes and escalated to the VP of Infrastructure within 3 hours. e 2021 one-time home office "
+    },
+    {
+      "id": "q37",
+      "answerable": true,
+      "expected_source": "aurora_handbook.md",
+      "retrieved_sources": [
+        "legacy_handbook_2021.md",
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md",
+        "aurora_handbook.md",
+        "q3_financials.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "answer_correctness": 0.0,
+      "citation_accuracy": 0.0,
+      "abstained": null,
+      "latency_s": 0.054,
+      "answer_preview": "Historical Equipment Allowances\nThe 2021 one-time home office equipment stipend was $500 USD. In-Office Attendance\nThe 2021 policy required three mandatory in-office days per week: Mondays, Wednesdays"
+    },
+    {
+      "id": "q38",
+      "answerable": false,
+      "expected_source": "",
+      "retrieved_sources": [
+        "aurora_handbook.md",
+        "q3_financials.txt",
+        "infra_runbook.txt",
+        "compliance_policy.txt",
+        "legacy_handbook_2021.md"
+      ],
+      "recall_at_5": null,
+      "reciprocal_rank": null,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": true,
+      "latency_s": 0.038,
+      "answer_preview": "I do not have enough information in the provided context to answer this question."
+    },
+    {
+      "id": "q39",
+      "answerable": false,
+      "expected_source": "",
+      "retrieved_sources": [
+        "infra_runbook.txt",
+        "nebula_architecture.txt",
+        "infra_runbook.txt",
+        "aurora_handbook.md",
+        "helix_api.md"
+      ],
+      "recall_at_5": null,
+      "reciprocal_rank": null,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": false,
+      "latency_s": 0.068,
+      "answer_preview": "## Section 2: Redis Cluster Split-Brain Remediation\nWhen sentinel logs report `ODOWN` (objective down) on multiple Redis masters:\n- Force isolate partition node using iptables drop rule # Aurora Syste"
+    },
+    {
+      "id": "q40",
+      "answerable": false,
+      "expected_source": "",
+      "retrieved_sources": [
+        "infra_runbook.txt",
+        "nebula_architecture.txt",
+        "infra_runbook.txt",
+        "helix_api.md",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": null,
+      "reciprocal_rank": null,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": false,
+      "latency_s": 0.101,
+      "answer_preview": "## Section 3: Emergency Secret & KMS Key Rotation\nIn the event of suspected key compromise:\n- Revoke compromised AWS KMS key alias `alias/aurora-prod-vault-2025` with immediate disable: `aws kms disab"
+    }
+  ]
+}

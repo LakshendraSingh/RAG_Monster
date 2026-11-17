@@ -1,0 +1,15 @@
+AURORA SYSTEMS — Q3 2025 QUARTERLY FINANCIAL SUMMARY
+
+Executive Highlights:
+Total revenue for Q3 2025 reached $48.6 million, representing a 34% year-over-year (YoY) increase compared to $36.2 million in Q3 2024. Annual Recurring Revenue (ARR) exited the quarter at $198.4 million, up from $152.0 million a year ago.
+
+Segment Breakdown:
+- North America: $31.1 million (64% of total revenue)
+- EMEA: $12.6 million (26% of total revenue)
+- APAC: $4.9 million (10% of total revenue)
+
+Operating Expenses and Margins:
+Gross margin improved to 78.2% in Q3 2025, driven by a 22% reduction in cloud compute costs per million events after migrating to Graviton4 instances. Research and Development (R&D) spending was $14.2 million (29.2% of revenue), while Sales and Marketing (S&M) totaled $16.8 million. Net Dollar Retention (NDR) for enterprise customers (spending >$100k ARR) stood at 118%.
+
+Headcount and Guidance:
+Total full-time headcount at quarter-end was 412 employees, with 185 in Engineering, 110 in Go-To-Market, and 117 in G&A and Customer Success. Management projects Q4 2025 revenue to be between $51.0 million and $52.5 million.

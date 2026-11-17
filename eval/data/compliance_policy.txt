@@ -1,0 +1,12 @@
+AURORA SYSTEMS — DATA GOVERNANCE & COMPLIANCE POLICY (DOC-POL-09)
+
+1. Encryption Standards
+All customer data at rest in S3 buckets and RDS databases must be encrypted using AES-256-GCM with customer-managed KMS keys rotated every 365 days. All data in transit must use TLS 1.3 (TLS 1.2 is permitted only for legacy webhook integrations until June 2026).
+
+2. Data Retention and Deletion
+- Application logs: retained for 90 days in hot storage, then purged automatically.
+- Audit and access logs: retained for 7 years in immutable WORM storage for SOC 2 Type II compliance.
+- Customer PII deletion (GDPR / CCPA "Right to be Forgotten"): upon verified request, all PII must be hard-deleted from primary databases within 14 business days and purged from encrypted backups within 30 calendar days.
+
+3. Compliance Audits
+Aurora Systems undergoes an external SOC 2 Type II audit annually in October and an ISO 27001 surveillance audit every 12 months. Penetration testing is conducted semi-annually by an independent CREST-certified vendor.

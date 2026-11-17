@@ -1,0 +1,20 @@
+# Aurora Systems Production Infrastructure Runbook (RUN-OPS-44)
+
+## Section 1: SEV-1 Database Primary Failover Procedure
+1. Verify replica lag: Run `pg_stat_replication` on read-replica nodes (`db-replica-01.prod`, `db-replica-02.prod`). Ensure replay lag is under 150 milliseconds.
+2. Demote primary node: Execute `patronictl -c /etc/patroni/db.yml pause` followed by graceful shutdown of the primary node `db-primary.prod`.
+3. Promote standby: Execute `patronictl -c /etc/patroni/db.yml failover --candidate db-replica-01.prod --force`.
+4. DNS switch: Route53 internal record `db.internal.aurora.io` TTL is set to 10 seconds. Verify propagation using `dig +short @10.0.0.2 db.internal.aurora.io`.
+5. Post-failover health check: Confirm write connection pool via `pgbouncer` connection counter `<= 85%` capacity.
+
+## Section 2: Redis Cluster Split-Brain Remediation
+When sentinel logs report `ODOWN` (objective down) on multiple Redis masters:
+- Force isolate partition node using iptables drop rule on port 6379: `sudo iptables -A INPUT -p tcp --dport 6379 -j DROP`.
+- Trigger manual master promotion via `redis-cli -h redis-02.prod -a $REDIS_AUTH CLUSTER FAILOVER TAKEOVER`.
+- Flush stale deduplication bloom filters: `redis-cli -h redis-primary.prod DEL nebula:event:dedup:active`.
+
+## Section 3: Emergency Secret & KMS Key Rotation
+In the event of suspected key compromise:
+- Revoke compromised AWS KMS key alias `alias/aurora-prod-vault-2025` with immediate disable: `aws kms disable-key --key-id <key-arn>`.
+- Provision emergency key `alias/aurora-prod-vault-emergency` and trigger dual-decryption re-wrap job via `k8s/jobs/vault-rewrap.yaml`.
+- All operational pods must be restarted with rollout restart: `kubectl rollout restart deployment -n prod nebula-streaming-engine`.

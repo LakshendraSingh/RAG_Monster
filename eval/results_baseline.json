@@ -1,0 +1,778 @@
+{
+  "total_queries": 40,
+  "answerable_queries": 31,
+  "unanswerable_queries": 9,
+  "llm_calls_attempted": 0,
+  "llm_errors": 0,
+  "metrics": {
+    "recall_at_5": 1.0,
+    "mrr": 0.9409,
+    "answer_correctness": null,
+    "citation_accuracy": null,
+    "abstention_rate": null,
+    "latency_avg_s": 0.0,
+    "latency_p95_s": 0.0
+  },
+  "items": [
+    {
+      "id": "q01",
+      "answerable": true,
+      "expected_source": "aurora_handbook.md",
+      "retrieved_sources": [
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "q3_financials.txt",
+        "helix_api.md",
+        "q3_financials.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q02",
+      "answerable": true,
+      "expected_source": "aurora_handbook.md",
+      "retrieved_sources": [
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "compliance_policy.txt",
+        "aurora_handbook.md",
+        "q3_financials.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q03",
+      "answerable": true,
+      "expected_source": "aurora_handbook.md",
+      "retrieved_sources": [
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md",
+        "nebula_architecture.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q04",
+      "answerable": true,
+      "expected_source": "aurora_handbook.md",
+      "retrieved_sources": [
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "nebula_architecture.txt",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.5,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q05",
+      "answerable": true,
+      "expected_source": "aurora_handbook.md",
+      "retrieved_sources": [
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "q3_financials.txt",
+        "aurora_handbook.md",
+        "compliance_policy.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q06",
+      "answerable": true,
+      "expected_source": "nebula_architecture.txt",
+      "retrieved_sources": [
+        "nebula_architecture.txt",
+        "helix_api.md",
+        "aurora_handbook.md",
+        "q3_financials.txt",
+        "infra_runbook.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q07",
+      "answerable": true,
+      "expected_source": "nebula_architecture.txt",
+      "retrieved_sources": [
+        "nebula_architecture.txt",
+        "infra_runbook.txt",
+        "infra_runbook.txt",
+        "nebula_architecture.txt",
+        "infra_runbook.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q08",
+      "answerable": true,
+      "expected_source": "nebula_architecture.txt",
+      "retrieved_sources": [
+        "nebula_architecture.txt",
+        "nebula_architecture.txt",
+        "infra_runbook.txt",
+        "infra_runbook.txt",
+        "helix_api.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q09",
+      "answerable": true,
+      "expected_source": "nebula_architecture.txt",
+      "retrieved_sources": [
+        "nebula_architecture.txt",
+        "nebula_architecture.txt",
+        "infra_runbook.txt",
+        "infra_runbook.txt",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q10",
+      "answerable": true,
+      "expected_source": "nebula_architecture.txt",
+      "retrieved_sources": [
+        "nebula_architecture.txt",
+        "nebula_architecture.txt",
+        "infra_runbook.txt",
+        "infra_runbook.txt",
+        "q3_financials.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q11",
+      "answerable": true,
+      "expected_source": "q3_financials.txt",
+      "retrieved_sources": [
+        "q3_financials.txt",
+        "q3_financials.txt",
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md",
+        "compliance_policy.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q12",
+      "answerable": true,
+      "expected_source": "q3_financials.txt",
+      "retrieved_sources": [
+        "q3_financials.txt",
+        "q3_financials.txt",
+        "legacy_handbook_2021.md",
+        "infra_runbook.txt",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q13",
+      "answerable": true,
+      "expected_source": "q3_financials.txt",
+      "retrieved_sources": [
+        "q3_financials.txt",
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md",
+        "infra_runbook.txt",
+        "q3_financials.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q14",
+      "answerable": true,
+      "expected_source": "q3_financials.txt",
+      "retrieved_sources": [
+        "q3_financials.txt",
+        "q3_financials.txt",
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "nebula_architecture.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q15",
+      "answerable": true,
+      "expected_source": "q3_financials.txt",
+      "retrieved_sources": [
+        "q3_financials.txt",
+        "q3_financials.txt",
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q16",
+      "answerable": true,
+      "expected_source": "helix_api.md",
+      "retrieved_sources": [
+        "helix_api.md",
+        "aurora_handbook.md",
+        "helix_api.md",
+        "legacy_handbook_2021.md",
+        "legacy_handbook_2021.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q17",
+      "answerable": true,
+      "expected_source": "helix_api.md",
+      "retrieved_sources": [
+        "helix_api.md",
+        "aurora_handbook.md",
+        "helix_api.md",
+        "nebula_architecture.txt",
+        "nebula_architecture.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q18",
+      "answerable": true,
+      "expected_source": "helix_api.md",
+      "retrieved_sources": [
+        "helix_api.md",
+        "helix_api.md",
+        "nebula_architecture.txt",
+        "aurora_handbook.md",
+        "compliance_policy.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q19",
+      "answerable": true,
+      "expected_source": "helix_api.md",
+      "retrieved_sources": [
+        "helix_api.md",
+        "helix_api.md",
+        "aurora_handbook.md",
+        "nebula_architecture.txt",
+        "nebula_architecture.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q20",
+      "answerable": true,
+      "expected_source": "compliance_policy.txt",
+      "retrieved_sources": [
+        "compliance_policy.txt",
+        "infra_runbook.txt",
+        "legacy_handbook_2021.md",
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q21",
+      "answerable": true,
+      "expected_source": "compliance_policy.txt",
+      "retrieved_sources": [
+        "compliance_policy.txt",
+        "infra_runbook.txt",
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "compliance_policy.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q22",
+      "answerable": true,
+      "expected_source": "compliance_policy.txt",
+      "retrieved_sources": [
+        "compliance_policy.txt",
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "infra_runbook.txt",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q23",
+      "answerable": true,
+      "expected_source": "compliance_policy.txt",
+      "retrieved_sources": [
+        "compliance_policy.txt",
+        "compliance_policy.txt",
+        "infra_runbook.txt",
+        "helix_api.md",
+        "nebula_architecture.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q24",
+      "answerable": true,
+      "expected_source": "nebula_architecture.txt",
+      "retrieved_sources": [
+        "nebula_architecture.txt",
+        "nebula_architecture.txt",
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "helix_api.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q25",
+      "answerable": false,
+      "expected_source": "",
+      "retrieved_sources": [
+        "aurora_handbook.md",
+        "infra_runbook.txt",
+        "compliance_policy.txt",
+        "legacy_handbook_2021.md",
+        "compliance_policy.txt"
+      ],
+      "recall_at_5": null,
+      "reciprocal_rank": null,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q26",
+      "answerable": false,
+      "expected_source": "",
+      "retrieved_sources": [
+        "aurora_handbook.md",
+        "legacy_handbook_2021.md",
+        "infra_runbook.txt",
+        "compliance_policy.txt",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": null,
+      "reciprocal_rank": null,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q27",
+      "answerable": false,
+      "expected_source": "",
+      "retrieved_sources": [
+        "infra_runbook.txt",
+        "nebula_architecture.txt",
+        "infra_runbook.txt",
+        "infra_runbook.txt",
+        "legacy_handbook_2021.md"
+      ],
+      "recall_at_5": null,
+      "reciprocal_rank": null,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q28",
+      "answerable": false,
+      "expected_source": "",
+      "retrieved_sources": [
+        "aurora_handbook.md",
+        "infra_runbook.txt",
+        "compliance_policy.txt",
+        "legacy_handbook_2021.md",
+        "compliance_policy.txt"
+      ],
+      "recall_at_5": null,
+      "reciprocal_rank": null,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q29",
+      "answerable": false,
+      "expected_source": "",
+      "retrieved_sources": [
+        "q3_financials.txt",
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md",
+        "compliance_policy.txt",
+        "q3_financials.txt"
+      ],
+      "recall_at_5": null,
+      "reciprocal_rank": null,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q30",
+      "answerable": false,
+      "expected_source": "",
+      "retrieved_sources": [
+        "helix_api.md",
+        "helix_api.md",
+        "legacy_handbook_2021.md",
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": null,
+      "reciprocal_rank": null,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q31",
+      "answerable": true,
+      "expected_source": "infra_runbook.txt",
+      "retrieved_sources": [
+        "infra_runbook.txt",
+        "infra_runbook.txt",
+        "nebula_architecture.txt",
+        "helix_api.md",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q32",
+      "answerable": true,
+      "expected_source": "infra_runbook.txt",
+      "retrieved_sources": [
+        "infra_runbook.txt",
+        "aurora_handbook.md",
+        "nebula_architecture.txt",
+        "aurora_handbook.md",
+        "compliance_policy.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q33",
+      "answerable": true,
+      "expected_source": "infra_runbook.txt",
+      "retrieved_sources": [
+        "infra_runbook.txt",
+        "infra_runbook.txt",
+        "nebula_architecture.txt",
+        "aurora_handbook.md",
+        "nebula_architecture.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q34",
+      "answerable": true,
+      "expected_source": "infra_runbook.txt",
+      "retrieved_sources": [
+        "infra_runbook.txt",
+        "aurora_handbook.md",
+        "nebula_architecture.txt",
+        "aurora_handbook.md",
+        "helix_api.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q35",
+      "answerable": true,
+      "expected_source": "legacy_handbook_2021.md",
+      "retrieved_sources": [
+        "legacy_handbook_2021.md",
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md",
+        "compliance_policy.txt",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q36",
+      "answerable": true,
+      "expected_source": "aurora_handbook.md",
+      "retrieved_sources": [
+        "legacy_handbook_2021.md",
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md",
+        "infra_runbook.txt",
+        "q3_financials.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q37",
+      "answerable": true,
+      "expected_source": "aurora_handbook.md",
+      "retrieved_sources": [
+        "legacy_handbook_2021.md",
+        "legacy_handbook_2021.md",
+        "aurora_handbook.md",
+        "aurora_handbook.md",
+        "q3_financials.txt"
+      ],
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q38",
+      "answerable": false,
+      "expected_source": "",
+      "retrieved_sources": [
+        "aurora_handbook.md",
+        "q3_financials.txt",
+        "infra_runbook.txt",
+        "compliance_policy.txt",
+        "legacy_handbook_2021.md"
+      ],
+      "recall_at_5": null,
+      "reciprocal_rank": null,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q39",
+      "answerable": false,
+      "expected_source": "",
+      "retrieved_sources": [
+        "infra_runbook.txt",
+        "nebula_architecture.txt",
+        "infra_runbook.txt",
+        "aurora_handbook.md",
+        "helix_api.md"
+      ],
+      "recall_at_5": null,
+      "reciprocal_rank": null,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    },
+    {
+      "id": "q40",
+      "answerable": false,
+      "expected_source": "",
+      "retrieved_sources": [
+        "infra_runbook.txt",
+        "nebula_architecture.txt",
+        "infra_runbook.txt",
+        "helix_api.md",
+        "aurora_handbook.md"
+      ],
+      "recall_at_5": null,
+      "reciprocal_rank": null,
+      "answer_correctness": null,
+      "citation_accuracy": null,
+      "abstained": null,
+      "latency_s": 0.0,
+      "answer_preview": ""
+    }
+  ]
+}

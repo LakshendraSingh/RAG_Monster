@@ -1,0 +1,16 @@
+NEBULA STREAMING ENGINE — ARCHITECTURE SPECIFICATION v3.4
+
+1. Overview
+Nebula is a low-latency event streaming platform built on Apache Kafka and Rust worker nodes. It processes up to 1.4 million events per second across 3 availability zones in us-east-1.
+
+2. Partitioning and Ordering
+All incoming telemetry events are partitioned by `tenant_id` using MurmurHash3 into 64 Kafka partitions per topic. Ordering is strictly guaranteed within a single partition, but not across different partitions. Consumer groups use cooperative sticky rebalancing with a `session.timeout.ms` of 45000 ms and `heartbeat.interval.ms` of 3000 ms.
+
+3. Caching and Deduplication
+Nebula uses a Redis Cluster for idempotency deduplication. Every event carries a UUIDv7 `event_id` stored in Redis with a Time-To-Live (TTL) of 3600 seconds (1 hour). If a duplicate `event_id` arrives within this window, the ingestion gateway drops it and emits metric `nebula_dedup_dropped_total`.
+
+4. Error Codes and Circuit Breaking
+- ERR-4092: Schema registry mismatch (client payload failed Avro validation).
+- ERR-5018: Downstream sink backpressure timeout exceeded (default 2500 ms).
+- ERR-5099: Partition leader election in progress; clients should retry with jittered exponential backoff.
+The egress circuit breaker trips open when the downstream error rate exceeds 5% over a rolling 60-second window (minimum 100 requests) and stays open for 30 seconds before entering half-open state.
